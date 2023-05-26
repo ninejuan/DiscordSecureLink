@@ -1,4 +1,5 @@
 <img src="https://i.imgur.com/bkXj5zX.png" width="650" height="auto">
+**레포지토리가 이곳으로 이전되었습니다!**
 
 **MIT 라이선스이므로 무조건적으로 저작자 표시가 필요합니다** (팀원 제외)  
 간단히라도 무조건 표시해주세요  
