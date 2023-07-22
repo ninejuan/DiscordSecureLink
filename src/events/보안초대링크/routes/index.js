@@ -47,12 +47,6 @@ router.get('/callback', passport.authenticate('discord', { failureRedirect: '/' 
 	}
 });
 
-router.get('/logout', async function(req, res) {
-	req.session.destroy(() => {
-		req.logout();
-		res.redirect('/');
-	});
-});
 router.get('/i/:name', checkAuth, async (req, res) => {
 	const SecInvCheck = await secinv.findOne({ link: req.params.name })
 	if (!SecInvCheck) {
@@ -80,16 +74,20 @@ router.get('/i/:name', checkAuth, async (req, res) => {
 		guild: server,
 		onlineMember: omember,
 		linkname: req.params.name,
-		recaptcha_key: 'google recaptcha key (v3)',
+		recaptcha_key: require('../../../data/config.json').dashboard.RECAPTCHA,
 	})
 })
 router.post('/i/:name', checkAuth, async (req, res) => {
+	console.log((req.body))
 	const SecInvCheck = await secinv.findOne({ link: req.params.name })
 	if (!SecInvCheck) {
 		res.render('dashboard/secinv_guild404', {
 			bot: req.client,
 			user: req.user,
 		})
+	}
+	if (req.body) {
+
 	}
 	const guildID = SecInvCheck.guildID;
 	const server = client.guilds.cache.get(guildID)
@@ -112,4 +110,12 @@ router.post('/i/:name', checkAuth, async (req, res) => {
 		})
 	}
 });
+
+router.get('/logout', async (req, res, next) => {
+	console.log('get logout location');
+	req.logOut((err) => {
+		if (err) return next(err);
+		else res.send('<script>window.location = document.referrer</script>');
+	});
+})
 module.exports = router;

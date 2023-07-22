@@ -119,3 +119,15 @@ textarea {
     width: 100%;
     vertical-align: middle;
   }
+  #changeAccount {
+    color: rgb(27, 247, 126);
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease background-color;
+  }
+  #changeAccount:hover {
+    color: rgb(73, 173, 255);
+  }

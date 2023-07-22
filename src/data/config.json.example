@@ -31,6 +31,6 @@
         "TEST_CALLBACK_URL": "테스트 봇 콜백 URL Test bot's callback url. Default: http://localhost/callback",
         "SUPPORT_SERVER": "서포트 서버 초대 링크 Support Server Invite URL",
         "PORT": 9900,
-        "RECAPTCHA": "google RECAPTCHA key (v3)"
+        "RECAPTCHA": "google RECAPTCHA key (v2 checkbox)"
     }
 }
