@@ -1,5 +1,4 @@
 const { MessageEmbed, Formatters } = require('discord.js');
-const { stripIndents } = require('common-tags');
 const client = require('../../../index')
 
 
