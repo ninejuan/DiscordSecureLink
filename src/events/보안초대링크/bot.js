@@ -7,11 +7,3 @@ client.on('ready', async () => {
 	const webPortal = require('./server');
 	webPortal.load(client);
 });
-
-client.on('guildCreate', async guild => {
-	if (!guild.available) return;
-
-	await db.createServer(guild.id);
-
-	console.log(`Joined server: ${guild.name}`);
-});
